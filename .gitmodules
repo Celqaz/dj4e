@@ -1,0 +1,3 @@
+[submodule "dj4e-samples"]
+	path = dj4e-samples
+	url = https://github.com/csev/dj4e-samples.git

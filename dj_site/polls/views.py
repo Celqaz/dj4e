@@ -4,6 +4,16 @@ from django.urls import reverse
 from django.views import generic
 
 from .models import Choice, Question
+from .forms import BasicForm
+
+
+# class SimpleCreate(DumpPsotView):
+
+def example(request):
+    form = BasicForm()
+    ctx = {'form': form}
+    return render('polls/form.html',ctx)
+    # return HttpResponse(form.as_table())
 
 
 class IndexView(generic.ListView):
@@ -18,6 +28,7 @@ class IndexView(generic.ListView):
 class DetailView(generic.DetailView):
     model = Question
     template_name = 'polls/detail.html'
+
 
 class ResultsView(generic.DetailView):
     model = Question
@@ -42,5 +53,6 @@ def vote(request, question_id):
         # user hits the Back button.
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
 
+
 def owner(request):
-    return HttpResponse("Hello, world. 70c96c4e is the polls owner.")
+    return HttpResponse("Hello, world. 3284b792 is the polls owner.")
