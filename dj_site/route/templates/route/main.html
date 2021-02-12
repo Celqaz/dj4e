@@ -1,0 +1,35 @@
+<h1>Using the url tag</h2>
+<div>
+    {% spaceless %}
+    {% lorem %}
+    {% endspaceless %}
+</div>
+<ul>
+    <li>
+        <a href="/route/second-view">
+        hard-coded</a> (not DRY)
+    </li>
+    <li>
+        {% url 'route:first-view' %}<br>
+        (url 'route:first-view')
+    </li>
+    <li>
+        <a href="{% url 'route:second-view' %}">
+        url 'route:second-view'</a><br>
+    </li>
+    <li>
+        {% url 'gview:cats' %}<br>
+        (url 'gview:cats') from gview/urls.py
+    </li>
+    <li>
+        {% url 'gview:cat' 42 %}<br>
+        (url 'gview:cat' 42) from gview/urls.py
+    </li>
+    <li>
+        {% url 'nsroute:second-view' %}<br>
+        (url 'nsroute:second-view') from dj4e-samples/urls.py
+    </li>
+</ul>
+<p>
+<a href="https://docs.djangoproject.com/en/3.0/ref/templates/builtins/#url" target="_blank">Documentation</a>
+</p>
