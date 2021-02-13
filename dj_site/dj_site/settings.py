@@ -1,4 +1,5 @@
 import os
+
 """
 Django settings for dj_site project.
 
@@ -27,8 +28,7 @@ SECRET_KEY = '!exgv&y((zp_(+e2n(3c2^y5v&u2q8_6@-z%4p&5=z+&y0z3n6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [ '*' ]
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -40,11 +40,22 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'route',
-    'gview',
-    'session',
-    'home',
-    'autos'
+
+    # Extensions - installed with pip3 / requirements.txt
+    'django_extensions',
+    # 'crispy_forms',
+    # 'rest_framework',
+    # 'social_django',
+    # 'taggit',
+
+    # APPs
+    'home.apps.HomeConfig',
+    'route.apps.RouteConfig',
+    'gview.apps.GviewConfig',
+    'session.apps.SessionConfig',
+    'autos.apps.AutosConfig',
+    'bookone.apps.BookoneConfig',
+    'cats.apps.CatsConfig',
 ]
 
 MIDDLEWARE = [
@@ -79,7 +90,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'dj_site.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -89,7 +99,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -109,7 +118,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -122,7 +130,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/

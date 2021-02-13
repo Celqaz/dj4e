@@ -10,4 +10,5 @@ class MakeAdmin(admin.ModelAdmin):
 
 @admin.register(Auto)
 class AutoAdmin(admin.ModelAdmin):
-    list_display = ('nickname', 'mileage', 'comments','make')
+    list_display = ('id','nickname', 'mileage', 'comments','make')
+    # list_display = ('nickname', 'mileage', 'comments','make')
