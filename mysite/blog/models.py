@@ -7,7 +7,7 @@ class Post(models.Model):
     STATUS_CHOICES = (
         ('draft', 'Draft'),
         ('published', 'Published'),
-    )
+    )  # tuple元组，STATUS_CHOICES[0][0] = 'draft'
 
 
 title = models.CharField(max_length=250)

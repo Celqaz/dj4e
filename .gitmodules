@@ -1,3 +1,9 @@
 [submodule "dj4e-samples"]
 	path = dj4e-samples
 	url = https://github.com/csev/dj4e-samples.git
+[submodule "mysite/example_code/Django-3-by-Example"]
+	path = mysite/example_code/Django-3-by-Example
+	url = https://github.com/PacktPublishing/Django-3-by-Example.git
+[submodule "mysite/Django-3-by-Example"]
+	path = mysite/Django-3-by-Example
+	url = https://github.com/PacktPublishing/Django-3-by-Example.git
