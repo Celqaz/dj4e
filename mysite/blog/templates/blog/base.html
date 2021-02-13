@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static 'css/blog.css' %}" rel="stylesheet">
+</head>
+<body>
+<div class="topnav">
+    <a class="active" href="{% url 'blog:post_list' %}">Home</a>
+    <a href="{% url 'blog:post_list' %}">Cata1</a>
+    <a href="{% url 'blog:post_list' %}">Cata2</a>
+    <a href="{% url 'blog:post_list' %}">Cata3</a>
+</div>
+<div id="content">
+    {% block content %}
+    {% endblock %}
+</div>
+<div id="sidebar">
+    <h2>My blog</h2>
+    <p>This is my blog.</p>
+    <p><a href="/about">关于</a></p>
+</div>
+</body>
+</html>

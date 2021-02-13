@@ -27,6 +27,7 @@ urlpatterns = [
     path('route/', include('route.urls', namespace='nsroute')),
     path('gview/', include('gview.urls')),
     path('admin/', admin.site.urls),
+    # 验证，默认搜索app registration目录下的login.html
     path('accounts/', include('django.contrib.auth.urls')),
     path('autos/', include('autos.urls')),
 ]

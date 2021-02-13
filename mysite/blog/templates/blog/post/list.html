@@ -1,0 +1,27 @@
+{% extends "blog/base.html" %}
+{% block title %}My Blog{% endblock %}
+{% block content %}
+<h1>My Blog in Django</h1>
+{% for post in posts %}
+<h2>
+    <a href="{{ post.get_absolute_url }}">
+        {{ post.title }}
+    </a>
+</h2>
+<p class="date">
+    Published {{ post.publish }} by {{ post.author }}
+</p>
+<!--
+truncatechars_html works for Chinese characters
+ref: https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#truncatechars-html
+-->
+{{ post.body|truncatechars_html:10|linebreaks }}
+{% endfor %}
+<!--
+Since the Page object you are passing to the template is called posts, you include
+the pagination template in the post list template, passing the parameters to render
+it correctly.
+You can follow this method to reuse your pagination template in the paginated views of different models.
+-->
+{% include "pagination.html" with page=page_obj %}
+{% endblock %}
