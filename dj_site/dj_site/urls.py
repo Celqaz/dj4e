@@ -30,4 +30,5 @@ urlpatterns = [
     # 验证，默认搜索app registration目录下的login.html
     path('accounts/', include('django.contrib.auth.urls')),
     path('autos/', include('autos.urls')),
+    path('cats/', include('cats.urls',namespace='cats')),
 ]

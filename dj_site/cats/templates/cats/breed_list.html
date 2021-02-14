@@ -1,0 +1,17 @@
+{% extends "base_bootstrap.html" %}
+
+{% block content %}
+<h1>Create Breed</h1>
+{% if breeds %}
+<ul>
+    {% for breed in breeds %}
+<li>{{ breed.name }}
+    (<a href="{% url 'cats:breed_update' breed.id %}">Update</a> |
+    <a href="{% url 'cats:breed_delete' breed.id %}">Delete</a>)</li>
+    {% endfor %}
+    <div><a href="{% url 'cats:breed_list' %}">View breeds</a></div>
+</ul>
+{% else %}
+<p>There are no breeds in the library.</p>
+{% endif %}
+{% endblock %}
