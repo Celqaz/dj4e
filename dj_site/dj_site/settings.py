@@ -14,6 +14,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 
+APP_NAME = "Ads List"
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 # 1 code/dj_site/dj_pro/dj_site/dj_site/templates/session/main.html (Source does not exist)
@@ -42,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Extensions - installed with pip3 / requirements.txt
-    'django_extensions',
+    # 'django_extensions',
     # 'crispy_forms',
     # 'rest_framework',
     # 'social_django',
@@ -50,13 +51,17 @@ INSTALLED_APPS = [
 
     # APPs
     'home.apps.HomeConfig',
-    'route.apps.RouteConfig',
-    'gview.apps.GviewConfig',
-    'session.apps.SessionConfig',
-    'autos.apps.AutosConfig',
-    'bookone.apps.BookoneConfig',
-    'cats.apps.CatsConfig',
+    # 'route.apps.RouteConfig',
+    # 'gview.apps.GviewConfig',
+    # 'session.apps.SessionConfig',
+    # 'autos.apps.AutosConfig',
+    # 'bookone.apps.BookoneConfig',
+    # 'cats.apps.CatsConfig',
+    'ads.apps.AdsConfig',
 ]
+
+# When we get to crispy forms :)
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -83,6 +88,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'home.context_processors.settings',  # Add
             ],
         },
     },

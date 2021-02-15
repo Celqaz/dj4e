@@ -18,17 +18,18 @@ from django.urls import include, path
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='home/main.html')),
-    path('home/', include('home.urls')),
-    path('hello/', include('hello.urls')),
-    path('session/', include('session.urls')),
-    path('getpost/', include('getpost.urls')),
-    path('polls/', include('polls.urls')),
-    path('route/', include('route.urls', namespace='nsroute')),
-    path('gview/', include('gview.urls')),
-    path('admin/', admin.site.urls),
     # 验证，默认搜索app registration目录下的login.html
     path('accounts/', include('django.contrib.auth.urls')),
-    path('autos/', include('autos.urls')),
-    path('cats/', include('cats.urls',namespace='cats')),
+    path('', TemplateView.as_view(template_name='home/main.html')),
+    path('ads/', include('ads.urls')),
+    path('admin/', admin.site.urls),
+    # path('home/', include('home.urls')),
+    # path('hello/', include('hello.urls')),
+    # path('session/', include('session.urls')),
+    # path('getpost/', include('getpost.urls')),
+    # path('polls/', include('polls.urls')),
+    # path('route/', include('route.urls', namespace='nsroute')),
+    # path('gview/', include('gview.urls')),
+    # path('autos/', include('autos.urls')),
+    # path('cats/', include('cats.urls',namespace='cats')),
 ]

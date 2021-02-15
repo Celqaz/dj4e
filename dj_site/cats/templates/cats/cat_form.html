@@ -1,10 +1,13 @@
 {% extends "base_bootstrap.html" %}
 
 {% block content %}
-<h2>Modified Cat</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Submit">
-</form>
+<h1>Modified Cat</h1>
+<p>
+    {% load crispy_forms_tags %}
+    <from>
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" value="Submit">
+    </from>
+</p>
 {% endblock %}
