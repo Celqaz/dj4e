@@ -20,8 +20,9 @@ from django.views.generic import TemplateView
 urlpatterns = [
     # 验证，默认搜索app registration目录下的login.html
     path('accounts/', include('django.contrib.auth.urls')),
-    path('', TemplateView.as_view(template_name='home/main.html')),
-    path('ads/', include('ads.urls')),
+    # path('', TemplateView.as_view(template_name='home/main.html')),
+    # path('', TemplateView.as_view(template_name='index.html')),
+    path('', include('ads.urls')),
     path('admin/', admin.site.urls),
     # path('home/', include('home.urls')),
     # path('hello/', include('hello.urls')),

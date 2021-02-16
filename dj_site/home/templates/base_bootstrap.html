@@ -7,34 +7,49 @@
     <!-- Replace this value (42-42) with the one provided by the autograder -->
 
     <meta name="dj4e" content="3284b792f98b28e27b5264d87bc77f36">
-    <meta name="dj4e" content="--provided-by-autograder--">
     <meta name="dj4e-code" content="42161325757674">
 
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
-          crossorigin="anonymous">
 
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap-theme.min.css"
-          crossorigin="anonymous">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <link rel="stylesheet"
-          href="https://code.jquery.com/ui/1.12.1/themes/ui-lightness/jquery-ui.css"
-          crossorigin="anonymous">
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
+    {#    <link rel="stylesheet"#}
+    {#          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"#}
+    {#          crossorigin="anonymous">#}
+    {##}
+    {#    <link rel="stylesheet"#}
+    {#          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap-theme.min.css"#}
+    {#          crossorigin="anonymous">#}
+    {##}
+    {#    <link rel="stylesheet"#}
+    {#          href="https://code.jquery.com/ui/1.12.1/themes/ui-lightness/jquery-ui.css"#}
+    {#          crossorigin="anonymous">#}
+    {##}
+    {#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"#}
+    {#            crossorigin="anonymous"></script>#}
+    {##}
+    {#    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"#}
+    {#            crossorigin="anonymous"></script>#}
+    {##}
+    {#    <script#}
+    {#            src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"#}
+    {#            crossorigin="anonymous"></script>#}
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"
-            crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/57d5edebe3.js"></script>
 
-    <script
-            src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
-            crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    {#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">#}
+    {##}
+    {#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">#}
 
     <meta name="dj4e-version" content="2021-02-08">
 
@@ -46,13 +61,13 @@
     {% block navbar %} {% endblock %}
     {% block welcome %} {% endblock %}
     {% block messages %}
-    {% if messages %}
-    {% for msg in messages %}
-    <div class="alert alert-{{msg.level_tag}}" role="alert">
-        {{msg.message}}
-    </div>
-    {% endfor %}
-    {% endif %}
+        {% if messages %}
+            {% for msg in messages %}
+                <div class="alert alert-{{ msg.level_tag }}" role="alert">
+                    {{ msg.message }}
+                </div>
+            {% endfor %}
+        {% endif %}
     {% endblock %}
     {% block content %}
     {% endblock %}

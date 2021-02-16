@@ -1,0 +1,15 @@
+{#{% extends "base_bootstrap.html" %}#}
+{% extends "base_menu.html" %}
+{% block content %}
+    <p>
+        {% load crispy_forms_tags %}
+        <form action="" method="post">
+            {% csrf_token %}
+{#                        {{ form.as_p }}#}
+            {{ form|crispy }}
+            <input type="submit" value="Submit">
+            <input type="submit"
+                   onclick="window.location='{% url 'ads:all' %}'; return false;" value="Cancel">
+            </form>
+    </p>
+{% endblock %}

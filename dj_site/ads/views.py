@@ -1,18 +1,27 @@
 from django.shortcuts import render
 from .owner import *
+from .models import Ad
+
+
 # Create your views here.
 class AdListView(OwnerListView):
-    pass
+    model = Ad
+    template_name = 'ads/index.html'
+
 
 class AdDetailView(OwnerDetailView):
-    pass
+    model = Ad
+
 
 class AdCreateView(OwnerCreateView):
-    pass
+    model = Ad
+    fields = ['title', 'price', 'text']
 
 
 class AdUpdateView(OwnerUpdateView):
-    pass
+    model = Ad
+    fields = ['title', 'price','text']
+
 
 class AdDeleteView(OwnerDeleteView):
-    pass
+    model = Ad
