@@ -1,6 +1,12 @@
 {#{% extends "base_bootstrap.html" %}#}
 {% extends "base_menu.html" %}
 {% block content %}
+{#    load js in static files#}
+{#    {% load static %}#}
+{#    <script type="text/javascript" src="{% static 'js/test.js' %}"></script>#}
+{#    <script>#}
+{#        funprova()#}
+{#    </script>#}
     <h1>Ads List</h1>
     <a href="{% url 'ads:ad_create' %}">Create</a>
     {% if object_list %}
@@ -18,10 +24,10 @@
     {% else %}
         <p>There are no makes in the library.</p>
     {% endif %}
-{#    logout button#}
+    {#    logout button#}
     <form method="post" action="{% url 'logout' %}">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" class="btn btn-primary" value="Logout"/>
-</form>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-primary" value="Logout"/>
+    </form>
 {% endblock %}
