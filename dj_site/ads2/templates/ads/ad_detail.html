@@ -1,0 +1,13 @@
+{#{% extends 'base_bootstrap.html' %}#}
+{% extends "base_menu.html" %}
+{% block content %}
+    <span style="float: right;">
+    {% if object.owner == user %}
+        <a href="{% url 'ads:ad_update' object.id%}"><i class="fa fa-pencil"></i></a>
+        <a href="{% url 'ads:ad_delete' object.id%}"><i class="fa fa-trash"></i></a>
+    {% endif %}
+    </span>
+    <h1>{{ object.title }}</h1>
+    <p>{{ object.text }}</p>
+    <p>Price:$ {{ object.price }}</p>
+{% endblock %}
