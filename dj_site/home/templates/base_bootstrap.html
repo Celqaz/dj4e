@@ -3,11 +3,14 @@
 <head>
     <!-- Edit dj4e-samples/settings.py and add APP_NAME = 'DJ4E Samples' or similar -->
     <title>{% block title %}{{ settings.APP_NAME }}{% endblock %}</title>
+    {% load static %}
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+
 
     <!-- Replace this value (42-42) with the one provided by the autograder -->
 
-    <meta name="dj4e" content="3284b792f98b28e27b5264d87bc77f36">
     <meta name="dj4e-code" content="42161325757674">
+    <meta name="dj4e" content="b68fa653f3e1836366b72596194b9545">
 
 
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
@@ -52,7 +55,7 @@
     {#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">#}
 
     <meta name="dj4e-version" content="2021-02-08">
-{#    {% load static %}#}
+    {#    {% load static %}#}
     {% block head %} {% endblock %}
 
 </head>
