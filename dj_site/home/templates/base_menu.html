@@ -1,4 +1,5 @@
 {% extends "base_bootstrap.html" %}
+{% load app_tags %}
 {% block navbar %}
     {#{% load app_tags %}#}
     <nav class="navbar navbar-default navbar-inverse">
@@ -14,22 +15,17 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if user.is_authenticated %}
-                    <li>
-                        <a href="{% url 'ads:ad_create' %}">Create Ad</a>
-                    </li>
                     <li class="dropdown">
+                        <!-- gravatar depends on app_tags being loaded -->
+                        <!-- https://brobin.me/blog/2016/07/super-simple-django-gravatar/ -->
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">
-                            <span>gogogo</span>
-                            {#                <img style="width: 25px;" src="{{ user|gravatar:60 }}"/><b class="caret"></b>#}
-                        </a>
+                            <img style="width: 25px;" src="{{ user|gravatar:60 }}"/><b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="{% url 'logout' %}?next={% url 'ads:all' %}">Logout</a></li>
                         </ul>
                     </li>
                 {% else %}
-                    <li>
-                        <a href="{% url 'login' %}?next={% url 'ads:all' %}">Login</a>
-                    </li>
+                    <li><a href="{% url 'login' %}?next={% url 'ads:all' %}">Login</a></li>
                 {% endif %}
             </ul>
         </div>

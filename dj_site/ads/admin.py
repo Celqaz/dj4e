@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Ad
+from .models import Ad, Comment, Fav
 
 
 # Register your models here.
@@ -14,3 +14,11 @@ class AdClass(admin.ModelAdmin):
 #
 #
 # admin.site.register(Ad, AdAdmin)
+
+@admin.register(Comment)
+class AdClass(admin.ModelAdmin):
+    pass
+
+@admin.register(Fav)
+class AdClass(admin.ModelAdmin):
+    pass

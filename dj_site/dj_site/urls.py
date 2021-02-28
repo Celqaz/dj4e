@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from django.views.generic import TemplateView
+from django.contrib.auth import views as auth_views
+from django.conf.urls import url
 
 urlpatterns = [
     # 验证，默认搜索app registration目录下的login.html
     path('accounts/', include('django.contrib.auth.urls')),
+    url(r'^oauth/', include('social_django.urls', namespace='social')),  # Keep
     # path('', TemplateView.as_view(template_name='home/main.html')),
     # path('', TemplateView.as_view(template_name='index.html')),
     path('', include('ads.urls')),
@@ -34,3 +36,14 @@ urlpatterns = [
     # path('autos/', include('autos.urls')),
     # path('cats/', include('cats.urls',namespace='cats')),
 ]
+# Switch to social login if it is configured - Keep for later
+try:
+    from . import github_settings
+
+    social_login = 'registration/login_social.html'
+    urlpatterns.insert(0,
+                       path('accounts/login/', auth_views.LoginView.as_view(template_name=social_login))
+                       )
+    print('Using', social_login, 'as the login template')
+except:
+    print('Using registration/login.html as the login template')
