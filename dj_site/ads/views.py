@@ -16,15 +16,6 @@ class AdListView(OwnerListView):
     template_name = 'ads/index.html'
 
     def get(self, request):
-        # fav star
-        ad_list = Ad.objects.all()
-        favorites = list()
-        if request.user.is_authenticated:
-            # rows = [{'id': 2}, {'id': 4} ... ]  (A list of rows)
-            rows = request.user.favorite_ads.values('id')
-            # favorites = [2, 4, ...] using list comprehension
-            favorites = [row['id'] for row in rows]
-
         # search
         strval = request.GET.get("search", False)
         if strval:
@@ -43,7 +34,16 @@ class AdListView(OwnerListView):
         for obj in objects:
             obj.natural_updated = naturaltime(obj.updated_at)
 
-        ctx = {'ad_list': ad_list, 'favorites': favorites}
+        # fav star
+        # ad_list = Ad.objects.all()
+        favorites = list()
+        if request.user.is_authenticated:
+            # rows = [{'id': 2}, {'id': 4} ... ]  (A list of rows)
+            rows = request.user.favorite_ads.values('id')
+            # favorites = [2, 4, ...] using list comprehension
+            favorites = [row['id'] for row in rows]
+
+        ctx = {'ad_list': objects, 'favorites': favorites, 'search': strval}
         return render(request, self.template_name, ctx)
 
 

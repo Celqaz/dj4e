@@ -10,6 +10,18 @@
     {#    </script>#}
     <h1>Ads List</h1>
     <a href="{% url 'ads:ad_create' %}">Create Ad</a>
+    {#    search#}
+    <div style="float:right">
+        <!-- https://www.w3schools.com/howto/howto_css_search_button.asp -->
+        <form>
+            <input type="text" placeholder="Search.." name="search"
+                    {% if search %} value="{{ search }}" {% endif %}
+            >
+            <button type="submit"><i class="fa fa-search"></i></button>
+            <a href="{% url 'ads:all' %}"><i class="fa fa-undo"></i></a>
+        </form>
+    </div>
+    {#    #}
     {% if ad_list %}
         <ul>
             {% for ad in ad_list %}
@@ -18,6 +30,7 @@
                     {% if ad.owner == user %}
                         (<a href="{% url 'ads:ad_update' ad.id %}">Edit</a> |
                         <a href="{% url 'ads:ad_delete' ad.id %}">Delete</a>)
+                        <br/>
                     {% endif %}
                     {% if user.is_authenticated %}
                         <!-- Two hrefs with two stacked icons each - one showing and one hidden -->
@@ -42,6 +55,21 @@
                         </a>
                     {% endif %}
                 </li>
+                {#                detail#}
+                <div style="left:10px">
+                    {% if ad.text|length < 100 %}
+                        {{ ad.text }}
+                    {% else %}
+                        {{ ad.text|slice:"0:99" }}
+                        <a href="{% url 'well:post_detail'  post.id %}">...</a>
+                    {% endif %}
+                </div>
+                <small>
+                    {% if ad.owner.username %}
+                        posted by {{ ad.owner.username }}
+                    {% endif %}
+                    {{ ad.natural_updated }}
+                </small>
             {% endfor %}
         </ul>
     {% else %}
@@ -54,15 +82,15 @@
         <input type="submit" class="btn btn-primary" value="Logout"/>
     </form>
     <script>
-function favPost(url, ad_id) {
-    console.log('Requesting JSON');
-    $.post(url, {},  function(rowz){
-        console.log(url, 'finished');
-        $("#unfavorite_star_"+ad_id).toggle();
-        $("#favorite_star_"+ad_id).toggle();
-    }).fail(function(xhr) {
-        alert('Url failed with '+xhr.status+' '+url);
-    });
-}
-</script>
+        function favPost(url, ad_id) {
+            console.log('Requesting JSON');
+            $.post(url, {}, function (rowz) {
+                console.log(url, 'finished');
+                $("#unfavorite_star_" + ad_id).toggle();
+                $("#favorite_star_" + ad_id).toggle();
+            }).fail(function (xhr) {
+                alert('Url failed with ' + xhr.status + ' ' + url);
+            });
+        }
+    </script>
 {% endblock %}
